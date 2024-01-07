@@ -52,7 +52,7 @@ In summary, while these terms are related and interconnected, they represent dif
 
 ## Virtual DOM
 
-As of my last knowledge update in January 2022, React indeed includes a virtual DOM (Document Object Model). The virtual DOM is a crucial part of React's performance optimization strategy.
+The virtual DOM (VDOM) is a programming concept where an ideal, or “virtual”, representation of a UI is kept in memory and synced with the “real” DOM by a library such as ReactDOM. This process is called reconciliation.
 
 Here's a brief overview of how the virtual DOM works in React:
 
@@ -79,3 +79,11 @@ Keep in mind that React may undergo updates and improvements over time, so it's 
 
 
 ---
+
+## Diffing Algorithm vs Fiber Reconcillation
+
+- The diffing algorithm is a critical part of both the traditional stack-based reconciliation algorithm (used in earlier versions of React) and the React Fiber reconciliation algorithm.
+- React Fiber improves upon the stack-based approach by introducing features like concurrency and incremental rendering, making the diffing process more flexible and responsive.
+
+- In summary, the diffing algorithm is a core concept used in both the traditional and Fiber approaches.
+- Fiber, as a reimplementation of React's core algorithm, introduces new features like asynchronous, concurrency and incremental rendering to enhance the efficiency and responsiveness of the diffing process. The combination of these concepts allows React to efficiently update the UI in response to changes in state or props.

@@ -22,7 +22,7 @@ In summary, all three are utilities or tools that aim to streamline the developm
 
 ---
 
-## 2. While the terms "package," "module," "dependency," and "library" are related and often used in the context of software development, they have distinct meanings. 
+## 2. "package," "module," "dependency," and "library" 
 
 1. **Package:**
    - A collection of related modules, resources, and metadata.

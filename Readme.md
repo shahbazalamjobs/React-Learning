@@ -80,10 +80,34 @@ Keep in mind that React may undergo updates and improvements over time, so it's 
 
 ---
 
-## Diffing Algorithm vs Fiber Reconcillation
+## Traditional Reconcillation vs Fiber Reconcillation
 
-- The diffing algorithm is a critical part of both the traditional stack-based reconciliation algorithm (used in earlier versions of React) and the React Fiber reconciliation algorithm.
-- React Fiber improves upon the stack-based approach by introducing features like concurrency and incremental rendering, making the diffing process more flexible and responsive.
+React Fiber introduces a new reconciliation algorithm that enhances the way React handles updates to the user interface. Here's an overview of reconciliation in the context of React Fiber:
 
-- In summary, the diffing algorithm is a core concept used in both the traditional and Fiber approaches.
-- Fiber, as a reimplementation of React's core algorithm, introduces new features like asynchronous, concurrency and incremental rendering to enhance the efficiency and responsiveness of the diffing process. The combination of these concepts allows React to efficiently update the UI in response to changes in state or props.
+1. **Asynchronous Rendering:**
+   - **Traditional Approach:** In the traditional stack-based approach, React performed updates synchronously, potentially leading to delays in rendering and user interaction.
+   - **React Fiber:** Fiber introduces asynchronous rendering, allowing React to handle updates in a more flexible and concurrent manner. It can interrupt and prioritize rendering tasks.
+
+2. **Incremental Rendering:**
+   - **Traditional Approach:** Full re-renders of the virtual DOM could be computationally expensive, especially for large and complex UIs.
+   - **React Fiber:** Fiber supports incremental rendering, enabling updates to be processed in smaller chunks. This minimizes the impact on the main thread and improves perceived performance.
+
+3. **Interruptible and Pausable:**
+   - **Traditional Approach:** In the stack-based approach, once the rendering process began, it continued without interruption until completion.
+   - **React Fiber:** Fiber allows React to interrupt rendering to work on high-priority tasks (e.g., handling user input or animations) and then return to rendering. Rendering work can be paused, aborted, and resumed.
+
+4. **Task Priority and Scheduling:**
+   - **Traditional Approach:** All updates were treated with similar priority, leading to potential performance bottlenecks.
+   - **React Fiber:** Fiber introduces the concept of task priority, enabling React to prioritize high-priority tasks over less critical rendering work. This is achieved through a scheduler that schedules tasks based on their priority.
+
+5. **Concurrent Mode:**
+   - **Traditional Approach:** The stack-based approach lacked native support for concurrent operations.
+   - **React Fiber:** Fiber introduces Concurrent Mode, allowing React to work on multiple tasks concurrently. This helps maintain a responsive user interface even when there are concurrent tasks to handle.
+
+6. **Commit Phase:**
+   - **Traditional Approach:** The stack-based approach had a single commit phase where changes were applied to the real DOM.
+   - **React Fiber:** Fiber introduces multiple commit phases, allowing React to commit changes in stages. This can further optimize the update process.
+
+In summary, reconciliation in React Fiber builds upon the traditional reconciliation process by introducing features like asynchronous rendering, incremental rendering, and task prioritization. React Fiber's reconciliation is more flexible, allowing React to adapt to various scenarios and provide a more responsive user experience.
+
+---
